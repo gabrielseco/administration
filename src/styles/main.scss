@@ -1,1 +1,24 @@
 @import "materialism";
+
+.breadcrumb>li+li:before {
+  content:"/"
+}
+
+.forms-advanced {
+  margin: 40px;
+}
+
+
+.main-container .main-content {
+    position: relative;
+    padding-top: 64px;
+    margin-left: 260px;
+}
+
+.form-group img {
+    margin-top: 10px;
+}
+
+.page-error, .page-login {
+  background: radial-gradient(circle at 1.99% 43.04%,#000,transparent 100%),radial-gradient(circle at 99.79% 73.72%,#000,transparent 58%),radial-gradient(circle at 50% 50%,#fff,#fff 100%);
+}

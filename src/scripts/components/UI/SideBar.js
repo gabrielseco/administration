@@ -3,7 +3,7 @@ import BrandLogo from './BrandLogo';
 import UserInfo from './UserInfo';
 import Menu from './Menu';
 
-export default function Sidebar({config, menu}) {
+export default function Sidebar({ config, menu }) {
 
   const style = {
     width: '260px',

@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
-export default function Menu({menu}) {
+export default function Menu({ menu }) {
   const list = menu.map((el, i) => {
+
     const ICON = 'md '+el.ICON;
     const TARGET = '#'+el.ID;
     const NAME = el.NAME;
 
     if (el.CHILDREN.length === 0) {
+
       return (
         <li key={i} icon={ICON}>
           <a href={el.LINK}>
@@ -14,8 +16,11 @@ export default function Menu({menu}) {
           </a>
         </li>
       );
+
     } else {
+
       const listChildren = el.CHILDREN.map((child,j)=> {
+
         return(
           <li key={j} name={NAME}>
             <a href={child.LINK}>
@@ -25,7 +30,9 @@ export default function Menu({menu}) {
             </a>
           </li>
         );
+
       });
+
       return (
         <li key={i}>
           <a data-toggle="collapse" data-target={TARGET} aria-expanded="false"
@@ -38,7 +45,9 @@ export default function Menu({menu}) {
         </li>
       );
     }
+
   });
+
   return (
     <ul className="menu-links">
       {list}

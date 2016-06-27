@@ -44,7 +44,10 @@ module.exports = {
       'components': join(root, './src/scripts/components'),
       'containers': join(root, './src/scripts/containers'),
       'config'    : join(root, './src/scripts/config'),
-      'reducers'  : join(root, './src/scripts/reducers')
+      'reducers'  : join(root, './src/scripts/reducers'),
+      'utils'     : join(root, './src/scripts/utils'),
+      'UI'        : join(root, './src/scripts/components/UI')
+
     }
   },
   module: {

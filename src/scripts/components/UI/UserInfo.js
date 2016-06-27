@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-export default function UserInfo({config}) {
+
+export default function UserInfo({ config }) {
+
   return (
     <div className="user-logged-in">
       <div className="content">
@@ -14,6 +16,7 @@ export default function UserInfo({config}) {
       </div>
     </div>
   );
+  
 }
 UserInfo.propTypes = {
   config: PropTypes.object.isRequired
