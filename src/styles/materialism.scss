@@ -10,6 +10,7 @@
 // Bootstrap
 @import "materialism/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "materialism/bootstrap-overrides";
+@import "materialism/helpers";
 
 // materialism theme
 @import "materialism/theme/base";
@@ -51,6 +52,7 @@
 @import "materialism/plugins/jquery.nouislider";
 @import "materialism/plugins/aside";
 @import "materialism/plugins/fsm-sticky-header";
+@import "materialism/plugins/datatables";
 //@import "materialism/plugins/weather-icons";
 
 // Animations

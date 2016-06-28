@@ -5,10 +5,14 @@ export default class Button extends Component {
   }
   render() {
     return (
-      <div>
-
-      </div>);
+      <button type={this.props.data.TYPE}
+              className={this.props.data.CLASS}
+              onClick={this.props.data.CLICK}>
+              {this.props.data.NAME}
+      </button>
+    );
   }
 }
 Button.propTypes = {
+  data: PropTypes.object.isRequired
 };
