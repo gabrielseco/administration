@@ -6,7 +6,7 @@
 // Font
 @import "materialism/roboto-fontface/css/roboto-fontface";
 @import "materialism/material-design-iconic-font/scss/material-design-iconic-font";
-
+@import "materialism/font-awesome/scss/font-awesome";
 // Bootstrap
 @import "materialism/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "materialism/bootstrap-overrides";
@@ -53,6 +53,9 @@
 @import "materialism/plugins/aside";
 @import "materialism/plugins/fsm-sticky-header";
 @import "materialism/plugins/datatables";
+@import "materialism/plugins/fileupload";
+@import "materialism/plugins/summernote";
+
 //@import "materialism/plugins/weather-icons";
 
 // Animations

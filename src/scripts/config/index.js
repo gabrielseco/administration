@@ -16,13 +16,13 @@ export const menu = [
     CHILDREN:[
       {
         NAME: 'Listado de usuarios',
-        LINK: '/#listar_usuarios',
+        LINK: '/listar_usuarios',
         ID:'listar-usuarios',
         NOTIFICATION:''
       },
       {
         NAME: 'Añade usuario',
-        LINK: '#/anade_usuario',
+        LINK: '/anade_usuario',
         ID:'anade-usuario',
         NOTIFICATIONS:''
       }
@@ -35,7 +35,7 @@ export const menu = [
     CHILDREN:[
       {
         NAME: 'Listado de banners',
-        LINK: '/#listar_slide',
+        LINK: '/listar_slide',
         ID:'listar-slide',
         NOTIFICATION:''
       },
