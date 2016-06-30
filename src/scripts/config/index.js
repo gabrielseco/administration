@@ -41,7 +41,7 @@ export const menu = [
       },
       {
         NAME: 'Añade banner',
-        LINK: '#/anade_slide',
+        LINK: '/anade_slide',
         ID:'anade-slide',
         NOTIFICATIONS:''
       }
@@ -54,37 +54,37 @@ export const menu = [
     CHILDREN:[
       {
         NAME: 'Listado de noticias',
-        LINK: '/#listar_noticias',
+        LINK: '/listar_noticias',
         ID:'listar-noticias',
         NOTIFICATION:''
       },
       {
         NAME: 'Añade noticia',
-        LINK: '#/anade_noticia',
+        LINK: '/anade_noticia',
         ID:'anade-noticia',
         NOTIFICATIONS:''
       },
       {
         NAME: 'Listado de categorías',
-        LINK: '/#listar_noticias_categorias',
+        LINK: '/listar_categorias_noticias',
         ID:'listar-noticias-categorias',
         NOTIFICATION:''
       },
       {
         NAME: 'Añade categoria',
-        LINK: '/#anade_categoria_noticias',
+        LINK: '/anade_categoria_noticia',
         ID:'anade-categoria-noticias',
         NOTIFICATION:''
       },
       {
         NAME: 'Listado de tags',
-        LINK: '/#listar_noticias_tags',
+        LINK: '/listar_tags_noticias',
         ID:'listar_noticias_tags',
         NOTIFICATION:''
       },
       {
         NAME: 'Añade tag',
-        LINK: '/#anade_tag_noticias',
+        LINK: '/anade_tag_noticias',
         ID:'anade-tag-noticias',
         NOTIFICATION:''
       }
@@ -97,13 +97,13 @@ export const menu = [
     CHILDREN:[
       {
         NAME: 'Listado de portfolio',
-        LINK: '/#listar_portfolio',
+        LINK: '/listar_portfolio',
         ID:'listar-portfolio',
         NOTIFICATION:''
       },
       {
         NAME: 'Añade portfolio',
-        LINK: '#/anade_portfolio',
+        LINK: '/anade_portfolio',
         ID:'anade-portfolio',
         NOTIFICATIONS:''
       }
@@ -113,14 +113,14 @@ export const menu = [
     ID:'contacto',
     NAME: 'Contacto',
     ICON: 'md-message',
-    LINK: '/#listar_contactos',
+    LINK: '/listar_contactos',
     CHILDREN:[]
   },
   {
     ID:'configuracion',
     NAME: 'Configuración',
     ICON: 'md-mode-edit',
-    LINK: '/#configuracion',
+    LINK: '/configuracion',
     CHILDREN:[]
   }
 

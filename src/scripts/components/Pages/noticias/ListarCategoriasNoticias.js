@@ -7,8 +7,8 @@ import MainContainer from 'containers/MainContainer';
 
 
 
-const titulo = 'Slide';
-const texto  = 'Listado de banners';
+const titulo = 'Categorías';
+const texto  = 'Listado de categorías';
 
 const info = {
     TITULO : titulo,
@@ -19,7 +19,12 @@ const info = {
 const breadcrumb = [
   {
     NAME: 'GGSECO.COM',
-    LINK:'http://www.ggseco.com'
+    LINK:'http://www.ggseco.com',
+    TARGET:'_blank'
+  },
+  {
+    NAME: 'Noticias',
+    LINK:'/listar_noticias'
   },
   {
     NAME: titulo
@@ -33,15 +38,11 @@ const breadcrumb = [
 const tabla = {
   HEADERS:[
     {
-      NAME:'Imagen',
-      SORT: false
+      NAME:'Activo',
+      SORT:true
     },
     {
-      NAME: 'Activo',
-      SORT: true
-    },
-    {
-      NAME:'Nombre',
+      NAME:'Titulo',
       SORT: true
     },
     {
@@ -58,13 +59,13 @@ const tabla = {
 
 
 const infoModal = {
-  COMPONENT:'Slide',
+  COMPONENT:'Categoría',
   NAME: ''
 };
 
 
 
-class ListarSlide extends React.Component {
+class ListarCategoriasNoticias extends React.Component {
   constructor(props) {
     super(props);
     this.state = {tabla: '',api:'slide', modalLoading: false};
@@ -78,7 +79,7 @@ class ListarSlide extends React.Component {
             <section className="forms-advanced">
               <PageHeader info={info}/>
               <div className="p-b-10">
-                <FloatingButton icon="md md-add" link="/anade_slide"/>
+                <FloatingButton icon="md md-add" link="/anade_categoria_noticia"/>
               </div>
               <DataTable data={tabla}/>
             </section>
@@ -89,4 +90,4 @@ class ListarSlide extends React.Component {
   }
 }
 
-export default ListarSlide;
+export default ListarCategoriasNoticias;

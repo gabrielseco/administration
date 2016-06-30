@@ -3,37 +3,49 @@ import PageHeader from 'UI/PageHeader';
 import MainContainer from 'containers/MainContainer';
 import Form from 'containers/Form';
 import {config} from 'config';
-import {generateForm} from './form';
-import {browserHistory} from 'react-router';
+import {generateForm} from './category-form'; 
 
-const titulo = 'Slide';
-const texto  = 'Desde este formulario puedes modificar banners nuevos';
+const titulo = 'Categoría';
 
 const info = {
     TITULO : titulo,
     ICON: 'md-add-circle',
-    TEXTO: texto
+    TEXTO: 'Desde este formulario puedes crear categorías'
 };
+
 const breadcrumb = [
   {
     NAME: 'GGSECO.COM',
     LINK:'http://www.ggseco.com'
   },
   {
-    NAME: titulo
+    NAME:'Noticias',
+    LINK:'/listar_noticias'
   },
   {
-    NAME: 'Edición de banner'
+    NAME:'Categorías',
+    LINK: '/listar_noticias_categorias'
+  },
+  {
+    NAME: 'Alta de categoría'
   }
 ];
 
-const form = generateForm(titulo);
+const form = generateForm('Alta de categoría');
 
-export default class EditarSlide extends Component {
+
+
+
+class AltaTagNoticia extends React.Component {
+
   constructor(props) {
     super(props);
+    this.state = {api: 'tags_noticias'};
+
   }
+
   render() {
+
     return (
       <MainContainer data={breadcrumb}>
       <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
@@ -46,5 +58,4 @@ export default class EditarSlide extends Component {
     );
   }
 }
-EditarSlide.propTypes = {
-};
+export default AltaTagNoticia;

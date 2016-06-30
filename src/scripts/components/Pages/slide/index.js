@@ -1,6 +1,6 @@
 import ListarSlide from './ListarSlide';
 import AltaSlide from './AltaSlide';
-//import EditarUsuario from './EditarUsuario';
+import EditarSlide from './EditarSlide';
 
 module.exports = {
   slide:{
@@ -10,5 +10,9 @@ module.exports = {
   anadir_slide:{
     path:'anade_slide',
     component: AltaSlide
+  },
+  editar_slide:{
+    path:'editar_slide',
+    component: EditarSlide
   }
 };

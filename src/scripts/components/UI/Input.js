@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-
+import {slugify} from 'utils';
 
 class Input extends React.Component {
   _onChange(e){
     this.props.data.VALUE = e.target.value;
     if(this.props.data.TAKECONTROL !== '') {
-      //document.getElementById(this.props.data.TAKECONTROL).value = slugify(this.props.data.TAKECONTROL, e.target.value)
+      document.getElementById(this.props.data.TAKECONTROL).value = slugify(this.props.data.TAKECONTROL, e.target.value);
     }
   }
   render(){

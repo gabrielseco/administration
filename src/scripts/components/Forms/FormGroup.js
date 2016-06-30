@@ -3,6 +3,8 @@ import Input from 'UI/Input';
 import Switch from 'UI/Switch';
 import FileUpload from 'UI/FileUpload';
 import SummerNote from 'UI/SummerNote';
+import Imagen from 'UI/Imagen';
+
 export default class FormGroup extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,9 @@ export default class FormGroup extends Component {
         break;
       case 'note':
         input = <SummerNote data={this.props.data}/>;
+        break;
+      case 'img':
+        input = <Imagen data={this.props.data}/>;
         break;
       case 'file':
         input = <FileUpload data={this.props.data} />;

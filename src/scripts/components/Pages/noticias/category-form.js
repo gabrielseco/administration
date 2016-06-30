@@ -3,7 +3,7 @@ import {browserHistory} from 'react-router';
 export const generateForm = (titulo) =>  {
   return {
     TITULO:titulo,
-      ELEMENTS:[
+    ELEMENTS:[
       {
         ID:'activo',
         NAME:'Activo',
@@ -15,39 +15,20 @@ export const generateForm = (titulo) =>  {
         ID:'titulo',
         NAME:'Título',
         TYPE:'text',
+        TAKECONTROL:'slug',
         CLASS:'form-control',
         VALUE: '',
         REQUIRED: true,
         VALIDATION:'El campo es requerido'
       },
       {
-        ID:'enlace',
-        NAME:'Enlace',
+        ID:'slug',
+        NAME:'URL',
         TYPE:'text',
         CLASS:'form-control',
-        VALUE: ''
-      },
-      {
-        ID:'texto',
-        NAME:'Texto',
-        TYPE:'note',
-        CLASS:'wysiwyg',
-        VALUE: ''
-      },
-      {
-        ID:'imagenFD',
-        NAME:'Imagen',
-        TYPE:'img',
-        CLASS:'img-thumbnail',
-        FROM:'SERVER',
         VALUE: '',
-        WIDTH:200
-      },
-      {
-        ID: 'imagen',
-        NAME: 'Subir imagen',
-        TYPE: 'file',
-        CLASS: 'btn btn-info fileinput-button'
+        REQUIRED: false,
+        VALIDATION:''
       }
     ],
     BUTTONS: [

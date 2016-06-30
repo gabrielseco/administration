@@ -7,8 +7,8 @@ import MainContainer from 'containers/MainContainer';
 
 
 
-const titulo = 'Slide';
-const texto  = 'Listado de banners';
+const titulo = 'Noticias';
+const texto  = 'Listado de noticias';
 
 const info = {
     TITULO : titulo,
@@ -58,13 +58,13 @@ const tabla = {
 
 
 const infoModal = {
-  COMPONENT:'Slide',
+  COMPONENT:'Noticia',
   NAME: ''
 };
 
 
 
-class ListarSlide extends React.Component {
+class ListarNoticias extends React.Component {
   constructor(props) {
     super(props);
     this.state = {tabla: '',api:'slide', modalLoading: false};
@@ -78,7 +78,7 @@ class ListarSlide extends React.Component {
             <section className="forms-advanced">
               <PageHeader info={info}/>
               <div className="p-b-10">
-                <FloatingButton icon="md md-add" link="/anade_slide"/>
+                <FloatingButton icon="md md-add" link="/anade_noticia"/>
               </div>
               <DataTable data={tabla}/>
             </section>
@@ -89,4 +89,4 @@ class ListarSlide extends React.Component {
   }
 }
 
-export default ListarSlide;
+export default ListarNoticias;
