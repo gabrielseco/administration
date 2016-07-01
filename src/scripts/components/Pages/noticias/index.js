@@ -1,6 +1,6 @@
 import ListarNoticias from './ListarNoticias';
 import AltaNoticia from './AltaNoticia';
-
+import EditarNoticia from './EditarNoticia';
 import ListarCategoriasNoticias from './ListarCategoriasNoticias';
 import AltaCategoriaNoticia from './AltaCategoriaNoticia';
 import EditarCategoriaNoticia from './EditarCategoriaNoticia';
@@ -17,6 +17,10 @@ module.exports = {
   alta_noticia:{
     path:'anade_noticia',
     component: AltaNoticia
+  },
+  editar_noticia:{
+    path:'editar_noticia',
+    component: EditarNoticia
   },
   categorias_noticias:{
     path:'listar_categorias_noticias',

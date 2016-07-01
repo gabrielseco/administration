@@ -15,6 +15,7 @@ export default {
     require('components/Pages/slide').editar_slide,
     require('components/Pages/noticias').noticias,
     require('components/Pages/noticias').alta_noticia,
+    require('components/Pages/noticias').editar_noticia,
     require('components/Pages/noticias').categorias_noticias,
     require('components/Pages/noticias').alta_categoria_noticia,
     require('components/Pages/noticias').editar_categoria_noticia,

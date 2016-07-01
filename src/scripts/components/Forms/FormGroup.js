@@ -4,6 +4,9 @@ import Switch from 'UI/Switch';
 import FileUpload from 'UI/FileUpload';
 import SummerNote from 'UI/SummerNote';
 import Imagen from 'UI/Imagen';
+import DatePicker from 'UI/DatePicker';
+import Select from 'UI/Select';
+
 
 export default class FormGroup extends Component {
   constructor(props) {
@@ -25,6 +28,15 @@ export default class FormGroup extends Component {
         break;
       case 'file':
         input = <FileUpload data={this.props.data} />;
+        break;
+      case 'select':
+        input = <Select data={this.props.data}/>;
+        break;
+      case 'select-multiple':
+        input = <Select data={this.props.data} multiple />;
+        break;
+      case 'datepicker':
+        input = <DatePicker data={this.props.data}/>;
         break;
       default:
         input =  <Input data={this.props.data}/>;
