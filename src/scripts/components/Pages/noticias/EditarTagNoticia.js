@@ -10,7 +10,7 @@ const titulo = 'Tags';
 const info = {
     TITULO : titulo,
     ICON: 'md-add-circle',
-    TEXTO: 'Desde este formulario puedes crear tags'
+    TEXTO: 'Desde este formulario puedes modificar tags'
 };
 
 const breadcrumb = [
@@ -27,11 +27,11 @@ const breadcrumb = [
     LINK: '/listar_tags_noticias'
   },
   {
-    NAME: 'Alta de tag'
+    NAME: 'Modificación de tag'
   }
 ];
 
-const form = generateForm('Alta de tag');
+const form = generateForm('Modificación de tag');
 
 
 

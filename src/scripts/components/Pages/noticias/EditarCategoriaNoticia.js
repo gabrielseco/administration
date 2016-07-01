@@ -3,16 +3,17 @@ import PageHeader from 'UI/PageHeader';
 import MainContainer from 'containers/MainContainer';
 import Form from 'containers/Form';
 import {config} from 'config';
-import {generateForm} from './tag-form';
+import {generateForm} from './category-form';
+import {browserHistory} from 'react-router';
 
-const titulo = 'Tags';
+const titulo = 'Categoría';
+const texto  = 'Desde este formulario puedes modificar categorías';
 
 const info = {
     TITULO : titulo,
     ICON: 'md-add-circle',
-    TEXTO: 'Desde este formulario puedes crear tags'
+    TEXTO: texto
 };
-
 const breadcrumb = [
   {
     NAME: 'GGSECO.COM',
@@ -23,29 +24,21 @@ const breadcrumb = [
     LINK:'/listar_noticias'
   },
   {
-    NAME:'Tags',
-    LINK: '/listar_tags_noticias'
+    NAME:'Categorías',
+    LINK: '/listar_noticias_categorias'
   },
   {
-    NAME: 'Alta de tag'
+    NAME: 'Edición de banner'
   }
 ];
 
-const form = generateForm('Alta de tag');
+const form = generateForm(titulo);
 
-
-
-
-class AltaTagNoticia extends React.Component {
-
+export default class EditarCategoriaNoticia extends Component {
   constructor(props) {
     super(props);
-    this.state = {api: 'tags_noticias'};
-
   }
-
   render() {
-
     return (
       <MainContainer data={breadcrumb}>
       <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
@@ -58,4 +51,5 @@ class AltaTagNoticia extends React.Component {
     );
   }
 }
-export default AltaTagNoticia;
+EditarCategoriaNoticia.propTypes = {
+};
