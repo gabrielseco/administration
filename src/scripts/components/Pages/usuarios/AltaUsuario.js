@@ -1,9 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {browserHistory} from 'react-router';
 import PageHeader from 'UI/PageHeader';
 import MainContainer from 'containers/MainContainer';
 import Form from 'containers/Form';
 import {config} from 'config';
 import {generateForm} from './form';
+import {addUser} from 'actions';
+
 const titulo = 'Usuarios';
 const texto  = 'Alta de usuario';
 
@@ -29,9 +34,15 @@ const form = generateForm(titulo);
 
 
 
-export default class AltaUsuario extends Component {
+class AltaUsuario extends Component {
   constructor(props) {
     super(props);
+  }
+  makeAction(obj){
+
+    this.props.addUser(obj, function(response){
+      browserHistory.push('/listar_usuarios');
+    });
   }
   render() {
     return (
@@ -39,7 +50,7 @@ export default class AltaUsuario extends Component {
       <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
           <section className="forms-advanced">
             <PageHeader info={info}/>
-            <Form form={form}/>
+            <Form form={form} makeAction={this.makeAction.bind(this)}/>
 
           </section>
       </div>
@@ -47,5 +58,19 @@ export default class AltaUsuario extends Component {
     );
   }
 }
+
+
 AltaUsuario.propTypes = {
+  addUser: PropTypes.func.isRequired
 };
+
+function mapStateToProps(state) {
+  return {};
+
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ addUser }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AltaUsuario);

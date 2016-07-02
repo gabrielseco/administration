@@ -4,7 +4,7 @@ import {slugify} from 'utils';
 class Input extends React.Component {
   _onChange(e){
     this.props.data.VALUE = e.target.value;
-    if(this.props.data.TAKECONTROL !== '') {
+    if(this.props.data.TAKECONTROL !== '' && this.props.data.TAKECONTROL !== undefined) {
       document.getElementById(this.props.data.TAKECONTROL).value = slugify(this.props.data.TAKECONTROL, e.target.value);
     }
   }

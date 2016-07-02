@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 import moment from 'moment';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import PageHeader from 'UI/PageHeader';
 import DataTable from 'UI/DataTable';
 import FloatingButton from 'UI/FloatingButton';
 import MainContainer from 'containers/MainContainer';
-
-import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchUsers } from 'actions';
+import { fetchUsers, deleteUser } from 'actions';
 import Loading from  'UI/Loading';
+import Button from  'UI/Button';
+import Modal from 'UI/Modal';
+
 
 
 
@@ -67,7 +69,7 @@ const tabla = {
   ]
 };
 
-function mapToTable(json, headers, modal){
+function mapToTable(json, headers, func){
 
 
   let body = [];
@@ -77,19 +79,31 @@ function mapToTable(json, headers, modal){
 
     const fecha = moment(json[i]["createdAt"]).format("DD/MM/YYYY");
 
+    const data = {
+      TITLE: 'Eliminar usuario',
+      DESCRIPTION:'Desea eliminar el usuario con nombre: '+ json[i]["nombre"]
+    }
+
     const borrar = {
       CLASS:'btn btn-danger',
       NAME:'Eliminar',
-      refComponent: 'eliminar',
-      ACTION: modal,
-      STORE: 'idUser'
+      CLICK: () => {
+        console.log('this',this);
+        const id = json[i]["id"];
+        this.setState({
+          modalComponent: <Modal data={data} remove={this.deleteUser.bind(this,id)}/>
+        });
+
+        //func['deleteUser']();
+      }
     };
 
     const editar = {
       CLASS:'btn btn-primary',
       NAME:'Editar',
-      refComponent: 'editar',
-      LINK:'editar_usuario'
+      CLICK:() => {
+        browserHistory.push('/editar_usuario/'+json[i]["id"]);
+      }
     };
 
     editar.ID = json[i]["id"];
@@ -101,8 +115,8 @@ function mapToTable(json, headers, modal){
       fecha: fecha,
       activo: json[i]["activo"] ? "Sí" : "No",
       usuario: json[i]["nombre"],
-      editar: null,
-      eliminar: null
+      editar: <Button data={editar}/>,
+      eliminar: <Button data={borrar}/>
     };
 
     body.push(obj);
@@ -110,8 +124,6 @@ function mapToTable(json, headers, modal){
 
 
   tabla.BODY = body;
-
-  console.log(tabla.BODY);
 
 
 }
@@ -122,26 +134,39 @@ class ListarUsuarios extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      api: 'user'
+      api: 'user',
+      modal: false,
+      modalComponent: null
     };
   }
   componentDidMount(){
     const {fetchUsers} = this.props;
     fetchUsers(this.state.api);
   }
+  //TODO:UPDATE REDUX
+  deleteUser(id){
+    this.props.deleteUser(id, function(response){
+      console.log('response',response);
+      location.reload();
+    });
+  }
+
   formatTable(users){
     const headers = tabla.HEADERS;
     if(users.length > 0){
-      mapToTable(users, headers, null);
+      //passing the this context
+      mapToTable.apply(this, [users, headers, null]);
     }
 
   }
   render() {
     const {isFetching, users} = this.props;
+    const {modalComponent} = this.state;
 
     return (
       <div>
         {isFetching ?  <Loading/> :
+
         <MainContainer data={breadcrumb}>
         {this.formatTable(users)}
         <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
@@ -153,6 +178,7 @@ class ListarUsuarios extends Component {
               <DataTable data={tabla}/>
             </section>
         </div>
+        {modalComponent}
         </MainContainer>
         }
     </div>
@@ -162,7 +188,8 @@ class ListarUsuarios extends Component {
 
 ListarUsuarios.propTypes = {
   users: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchUsers: PropTypes.func.isRequired
+  fetchUsers: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -172,7 +199,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({fetchUsers }, dispatch);
+  return bindActionCreators({fetchUsers, deleteUser }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListarUsuarios);
