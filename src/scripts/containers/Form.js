@@ -5,9 +5,10 @@ import ButtonGroup from 'components/Forms/ButtonGroup';
 export default class Form extends Component {
   constructor(props) {
     super(props);
+    this.state = {elements: this.props.form.ELEMENTS};
   }
   render() {
-    const elements = this.props.form.ELEMENTS.map((res, i) => {
+    const elements = this.state.elements.map((res, i) => {
       return <FormGroup key={i} data={res}/>;
     });
     return (
