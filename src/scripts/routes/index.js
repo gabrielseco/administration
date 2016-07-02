@@ -22,6 +22,8 @@ export default {
     require('components/Pages/noticias').tags_noticias,
     require('components/Pages/noticias').alta_tag_noticia,
     require('components/Pages/noticias').editar_tag_noticia,
+    require('components/Pages/portfolio').portfolio,
+    require('components/Pages/contactos').contactos,
 
     require('components/Pages/server').not_found
   ]
