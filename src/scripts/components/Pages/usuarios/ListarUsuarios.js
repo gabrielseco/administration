@@ -82,7 +82,7 @@ function mapToTable(json, headers, func){
     const data = {
       TITLE: 'Eliminar usuario',
       DESCRIPTION:'Desea eliminar el usuario con nombre: '+ json[i]["nombre"]
-    }
+    };
 
     const borrar = {
       CLASS:'btn btn-danger',

@@ -22,3 +22,20 @@
 .page-error, .page-login {
   background: radial-gradient(circle at 1.99% 43.04%,#000,transparent 100%),radial-gradient(circle at 99.79% 73.72%,#000,transparent 58%),radial-gradient(circle at 50% 50%,#fff,#fff 100%);
 }
+
+
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+     *
+     .main-container .main-content {
+         margin-left: 0;
+     }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+     .main-container .main-content {
+         margin-left: 0;
+     }
+}
