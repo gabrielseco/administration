@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { editUser} from 'actions';
 import find from 'lodash/find';
 import PageHeader from 'UI/PageHeader';
 import MainContainer from 'containers/MainContainer';
@@ -42,12 +43,11 @@ class EditarUsuario extends Component {
   componentWillMount(){
     mapValues(this.props.user, form);
   }
-
+  //TODO:HAVE UPDATE REDUX REDUCER
   makeAction(obj){
-   /*AppActions.add(this.state.api, obj, (res) => {
-     console.log('crear usuario',res)
-     this.props.history.pushState(null, "/listar_usuarios");
-   })*/
+    this.props.editUser(this.props.params.id, obj, function(response){
+      browserHistory.push('/listar_usuarios');
+    });
  }
 
   render() {
@@ -72,7 +72,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch){
-  return {};
+  return bindActionCreators({editUser}, dispatch);
 }
 
 

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import users from './users';
+import contacts from './contacts';
 
 const combinedReducer = combineReducers({
-  users
+  users,
+  contacts
 });
 export default combinedReducer;

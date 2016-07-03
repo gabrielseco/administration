@@ -1,20 +1,18 @@
 import {getConstants} from '../constants';
-
-const {REQUEST_USERS, RECEIVE_USERS} = getConstants('users');
-
+const {REQUEST_CONTACTS, RECEIVE_CONTACTS} = getConstants('contacts');
 
 const initialState = {
   isFetching: false,
   items:[]
 };
 
- const users =  (state = initialState, action) => {
+ const contacts =  (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_USERS:
+    case REQUEST_CONTACTS:
       return Object.assign({}, state, {
         isFetching: true
       });
-    case RECEIVE_USERS:
+    case RECEIVE_CONTACTS:
     return Object.assign({}, state, {
       isFetching: false,
       items: action.items
@@ -25,4 +23,4 @@ const initialState = {
   }
 };
 
-export default users;
+export default contacts;

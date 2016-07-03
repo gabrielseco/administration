@@ -2,16 +2,16 @@ import axios from 'axios';
 import {API, FAILURE_SAVING, SENDING_DATA,
   SERVER_RESPONSE, getConstants} from 'constants';
 import action from './redux-actions';
-const endpoint = 'user';
+const endpoint = 'contacts';
 
-const {REQUEST_USERS, RECEIVE_USERS, FAILURE_USERS} = getConstants('users');
+const {REQUEST_CONTACTS, RECEIVE_CONTACTS, FAILURE_CONTACTS} = getConstants('contacts');
 
 
 
-//TODO: PASSING THE USER TO THE REDUCER ITEMS
+//TODO: PASSING THE Contact TO THE REDUCER ITEMS
 //TODO: MAKE THE CALLBACK WORK
 
-export function addUser(obj, cb){
+export function addContact(obj, cb){
   return (dispatch, getState) => {
     dispatch(action(SENDING_DATA, obj));
     return axios.post(`${API}${endpoint}`, obj)
@@ -25,7 +25,7 @@ export function addUser(obj, cb){
   };
 }
 
-export function editUser(id, obj, cb){
+export function editContact(id, obj, cb){
   return (dispatch, getState) => {
     dispatch(action(SENDING_DATA, obj));
     return axios.post(`${API}${endpoint}/${id}`, obj)
@@ -39,7 +39,7 @@ export function editUser(id, obj, cb){
   };
 }
 
-export function deleteUser(id, cb){
+export function deleteContact(id, cb){
   return (dispatch, getState) => {
     dispatch(action(SENDING_DATA, id));
     return axios.delete(`${API}${endpoint}/${id}`)
@@ -53,12 +53,12 @@ export function deleteUser(id, cb){
   };
 }
 
-export function fetchUsers(endpoint){
+export function fetchContacts(endpoint){
   return (dispatch, getState) => {
-    dispatch(action(REQUEST_USERS, []));
+    dispatch(action(REQUEST_CONTACTS, []));
     return axios.get(`${API}${endpoint}`)
                 .then(response => response.data)
-                .then(json =>  dispatch(action(RECEIVE_USERS,json)))
-                .catch(error => dispatch(action(FAILURE_USERS,error)));
+                .then(json =>  dispatch(action(RECEIVE_CONTACTS,json)))
+                .catch(error => dispatch(action(FAILURE_CONTACTS,error)));
   };
 }
