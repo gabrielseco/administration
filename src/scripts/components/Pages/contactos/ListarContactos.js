@@ -130,11 +130,11 @@ class ListarContactos extends React.Component {
     fetchContacts(this.state.api);
   }
 
-  formatTable(users){
+  formatTable(contacts){
     const headers = tabla.HEADERS;
-    if(users.length > 0){
+    if(contacts.length > 0){
       //passing the this context
-      mapToTable.apply(this, [users, headers, null]);
+      mapToTable.apply(this, [contacts, headers, null]);
     }
 
   }
@@ -149,14 +149,14 @@ class ListarContactos extends React.Component {
 
 
   render() {
-    const {isFetching, users} = this.props;
+    const {isFetching, contacts} = this.props;
     const {modalComponent} = this.state;
 
     return (
       <div>
       {isFetching ?  <Loading/> :
       <MainContainer data={breadcrumb}>
-        {this.formatTable(users)}
+        {this.formatTable(contacts)}
           <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
             <section className="forms-advanced">
               <PageHeader info={info}/>
@@ -174,7 +174,7 @@ class ListarContactos extends React.Component {
 
 function mapStateToProps(state) {
   const { contacts } = state;
-  return { users: contacts.items, isFetching: contacts.isFetching  };
+  return { contacts: contacts.items, isFetching: contacts.isFetching  };
 
 }
 

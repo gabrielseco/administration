@@ -32,4 +32,4 @@ Switch.propTypes = {
 };
 
 
-export default Switch
+export default Switch;

@@ -26,6 +26,11 @@ export function mapValues(json, form){
     }
 }
 
+
+export function isObjectEmpty(obj){
+  return Object.keys(obj).length === 0 && obj.constructor === Object;
+}
+
 export function slugify(type, value) {
   if (type !== 'slug'){
     return value;

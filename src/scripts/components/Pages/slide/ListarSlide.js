@@ -142,12 +142,12 @@ function mapToTable(json, headers, func){
 class ListarSlide extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {tabla: '',api:'slide', modalComponent: false};
+    this.state = {modal:false, modalComponent: false};
   }
 
   componentDidMount(){
     const {fetchSlides} = this.props;
-    fetchSlides(this.state.api);
+    fetchSlides();
   }
 
   formatTable(slides){

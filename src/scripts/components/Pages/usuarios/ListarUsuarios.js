@@ -134,14 +134,13 @@ class ListarUsuarios extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      api: 'user',
       modal: false,
       modalComponent: null
     };
   }
   componentDidMount(){
     const {fetchUsers} = this.props;
-    fetchUsers(this.state.api);
+    fetchUsers();
   }
   //TODO:UPDATE REDUX
   deleteUser(id){

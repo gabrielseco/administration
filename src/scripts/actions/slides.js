@@ -2,16 +2,22 @@ import axios from 'axios';
 import {API, FAILURE_SAVING, SENDING_DATA,
   SERVER_RESPONSE, getConstants} from 'constants';
 import action from './redux-actions';
+import isObjectEmpty from 'utils';
 const endpoint = 'slide';
 
 const {REQUEST_SLIDES, RECEIVE_SLIDES, FAILURE_SLIDES, UPLOAD_SLIDES} = getConstants('slides');
 
 
 function uploadImage(id, imagen, cb){
+
+  if(isObjectEmpty(imagen)){
+    cb(null);
+    return;
+  }
   let data = new FormData();
       data.append('id', +id);
       data.append('file', imagen);
-      axios.post('http://localhost:1337/slide/uploadImagen/',data)
+      axios.post(`http://localhost:1337/${endpoint}/uploadImagen/`,data)
            .then(function(response){
              cb(response.data);
            });
@@ -27,10 +33,9 @@ export function addSlide(obj, cb){
     return axios.post(`${API}${endpoint}`, obj)
                 .then(response => response.data)
                 .then(json => dispatch(action(SERVER_RESPONSE, json,() => {
-                  console.log('getstate',getState())
                   uploadImage(json.id, getState().slides.fileUpload, function(response){
                     cb(json);
-                  })
+                  });
                 }
               )))
                 .catch(error => dispatch(action(FAILURE_SAVING, error)));
@@ -75,7 +80,7 @@ export function deleteSlide(id, cb){
   };
 }
 
-export function fetchSlides(endpoint){
+export function fetchSlides(){
   return (dispatch, getState) => {
     dispatch(action(REQUEST_SLIDES, []));
     return axios.get(`${API}${endpoint}`)

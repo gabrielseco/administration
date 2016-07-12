@@ -23,7 +23,7 @@ export function deleteContact(id, cb){
   };
 }
 
-export function fetchContacts(endpoint){
+export function fetchContacts(){
   return (dispatch, getState) => {
     dispatch(action(REQUEST_CONTACTS, []));
     return axios.get(`${API}${endpoint}`)
