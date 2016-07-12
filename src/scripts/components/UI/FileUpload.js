@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 export default function FileUpload({data}) {
   const _onChange = (e) => {
     const file = e.target.files[0];
+    data.ONCHANGE(file);
   };
   return (
     <span className={data.CLASS}>

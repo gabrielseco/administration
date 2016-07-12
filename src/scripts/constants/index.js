@@ -7,7 +7,7 @@ export const SERVER_RESPONSE =  'SERVER_RESPONSE';
  function createConstants(type){
   require('../utils/String');
 
-  const tree = ['RECEIVE','REQUEST','FAILURE'];
+  const tree = ['RECEIVE','REQUEST','FAILURE', 'UPLOAD'];
 
   type = type.toUpperCase();
 

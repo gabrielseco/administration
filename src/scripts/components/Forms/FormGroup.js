@@ -13,7 +13,7 @@ export default class FormGroup extends Component {
     super(props);
   }
   render() {
-    const label = <label className="control-label" htmlFor={this.props.data.ID}>{this.props.data.NAME}</label>;
+    let label = <label className="control-label" htmlFor={this.props.data.ID}>{this.props.data.NAME}</label>;
     let input = {};
     let value = null;
     switch(this.props.data.TYPE){
@@ -27,6 +27,7 @@ export default class FormGroup extends Component {
         input = <Imagen data={this.props.data}/>;
         break;
       case 'file':
+        label = null;
         input = <FileUpload data={this.props.data} />;
         break;
       case 'select':

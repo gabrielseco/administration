@@ -1,9 +1,15 @@
 import React, { Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
+import {browserHistory} from 'react-router';
+import { bindActionCreators } from 'redux';
 import PageHeader from 'UI/PageHeader';
+import Loading from 'UI/Loading';
 import MainContainer from 'containers/MainContainer';
 import Form from 'containers/Form';
 import {config} from 'config';
 import {generateForm} from './form';
+import { addSlide, uploadSlide } from 'actions';
+
 
 const titulo = 'Slide';
 const texto  = 'Alta de banner';
@@ -19,33 +25,69 @@ const breadcrumb = [
     LINK:'http://www.ggseco.com'
   },
   {
-    NAME: titulo
+    NAME: titulo,
+    LINK:'/listar_slide'
   },
   {
     NAME: texto
   }
 ];
 
-const form = generateForm(titulo);
+const form = generateForm(titulo, );
 
+//TODO: MAKE THE UPLOAD
 
-
-export default class AltaUsuario extends Component {
+class AltaSlide extends Component {
   constructor(props) {
     super(props);
+    this.state = {form: null};
   }
+
+  componentDidMount(){
+    const form = generateForm.apply(this, [titulo, this.props.uploadSlide]);
+    this.setState({form: form});
+  }
+
+  makeAction(obj){
+    delete obj['imagen'];
+    this.props.addSlide(obj, (response) => {
+
+      browserHistory.push('/listar_slide');
+    });
+  }
+
   render() {
+    if(this.state.form === null){
+      return <Loading/>;
+    } else {
     return (
       <MainContainer data={breadcrumb}>
       <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
           <section className="forms-advanced">
             <PageHeader info={info}/>
-            <Form form={form}/>
+            <Form form={this.state.form} makeAction={this.makeAction.bind(this)} />
           </section>
       </div>
       </MainContainer>
     );
   }
+  }
 }
-AltaUsuario.propTypes = {
+
+
+AltaSlide.propTypes = {
+  addSlide: PropTypes.func.isRequired,
+  uploadSlide: PropTypes.func.isRequired
 };
+
+function mapStateToProps(state) {
+  const {slides} = state;
+  console.log('slides',slides);
+  return {file: slides.fileUpload};
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ addSlide, uploadSlide }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AltaSlide);

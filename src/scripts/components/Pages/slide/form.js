@@ -1,6 +1,6 @@
 import {browserHistory} from 'react-router';
 
-export const generateForm = (titulo) =>  {
+export const generateForm = (titulo, func) =>  {
   return {
     TITULO:titulo,
       ELEMENTS:[
@@ -40,6 +40,7 @@ export const generateForm = (titulo) =>  {
         TYPE:'img',
         CLASS:'img-thumbnail',
         FROM:'SERVER',
+        VIEW:'EDITION',
         VALUE: '',
         WIDTH:200
       },
@@ -47,7 +48,8 @@ export const generateForm = (titulo) =>  {
         ID: 'imagen',
         NAME: 'Subir imagen',
         TYPE: 'file',
-        CLASS: 'btn btn-info fileinput-button'
+        CLASS: 'btn btn-info fileinput-button',
+        ONCHANGE:func
       }
     ],
     BUTTONS: [

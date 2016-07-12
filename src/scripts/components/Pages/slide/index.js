@@ -12,7 +12,7 @@ module.exports = {
     component: AltaSlide
   },
   editar_slide:{
-    path:'editar_slide',
+    path:'editar_slide/:id',
     component: EditarSlide
   }
 };
