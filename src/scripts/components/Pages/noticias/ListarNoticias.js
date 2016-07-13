@@ -10,6 +10,7 @@ import MainContainer from 'containers/MainContainer';
 import { fetchNoticias, deleteNoticia } from 'actions';
 import Loading from  'UI/Loading';
 import Button from  'UI/Button';
+import Imagen from  'UI/Imagen';
 import Modal from 'UI/Modal';
 
 
@@ -40,6 +41,10 @@ const breadcrumb = [
 const tabla = {
   HEADERS:[
     {
+      NAME:'Fecha',
+      SORT: true
+    },
+    {
       NAME:'Imagen',
       SORT: false
     },
@@ -48,7 +53,7 @@ const tabla = {
       SORT: true
     },
     {
-      NAME:'Nombre',
+      NAME:'Título',
       SORT: true
     },
     {
@@ -80,8 +85,14 @@ function mapToTable(json, headers, func){
     const fecha = moment(json[i]["createdAt"]).format("DD/MM/YYYY");
 
     const data = {
-      TITLE: 'Eliminar usuario',
-      DESCRIPTION:'Desea eliminar el usuario con nombre: '+ json[i]["nombre"]
+      TITLE: 'Eliminar noticia',
+      DESCRIPTION:'Desea eliminar la noticia con titulo: '+ json[i]["titulo"]
+    };
+
+    const imagen = {
+      URL:"http://localhost:1337/images/"+json[i]["imagenFD"],
+      WIDTH:200,
+      TITLE:json[i]["titulo"]
     };
 
     const borrar = {
@@ -91,7 +102,7 @@ function mapToTable(json, headers, func){
         console.log('this',this);
         const id = json[i]["id"];
         this.setState({
-          modalComponent: <Modal data={data} remove={this.deleteUser.bind(this,id)}/>
+          modalComponent: <Modal data={data} remove={this.deleteNoticia.bind(this,id)}/>
         });
 
         //func['deleteUser']();
@@ -113,8 +124,9 @@ function mapToTable(json, headers, func){
 
     const obj = {
       fecha: fecha,
+      imagen:<Imagen data={imagen}/>,
       activo: json[i]["activo"] ? "Sí" : "No",
-      usuario: json[i]["nombre"],
+      usuario: json[i]["titulo"],
       editar: <Button data={editar}/>,
       eliminar: <Button data={borrar}/>
     };
@@ -156,6 +168,13 @@ class ListarNoticias extends React.Component {
     }
   }
 
+  deleteNoticia(id){
+    this.props.deleteNoticia(id, function(response){
+      console.log('response',response);
+      location.reload();
+    });
+  }
+
 
   render() {
     const {isFetching, noticias} = this.props;
@@ -175,6 +194,7 @@ class ListarNoticias extends React.Component {
               <DataTable data={tabla}/>
             </section>
           </div>
+          {modalComponent}
         </MainContainer>
       }
     </div>

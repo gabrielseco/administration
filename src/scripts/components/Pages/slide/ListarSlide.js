@@ -88,8 +88,8 @@ function mapToTable(json, headers, func){
     };
 
     const data = {
-      TITLE: 'Eliminar usuario',
-      DESCRIPTION:'Desea eliminar el usuario con nombre: '+ json[i]["nombre"]
+      TITLE: 'Eliminar slide',
+      DESCRIPTION:'Desea eliminar el slide con titulo: '+ json[i]["titulo"]
     };
 
     const borrar = {
@@ -157,6 +157,13 @@ class ListarSlide extends React.Component {
       mapToTable.apply(this, [slides, headers, null]);
     }
 
+  }
+
+  deleteSlide(id){
+    this.props.deleteSlide(id, function(response){
+      console.log('response',response);
+      location.reload();
+    });
   }
 
 

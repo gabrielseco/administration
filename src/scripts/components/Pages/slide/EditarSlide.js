@@ -45,10 +45,10 @@ class EditarSlide extends Component {
       form: null
     };
   }
-  componentDidMount(){
+  componentWillMount(){
     const form = generateForm.apply(this, [titulo, this.props.uploadSlide]);
-    this.setState({form: form});
     mapValues(this.props.slide, form);
+    this.setState({form: form});
   }
 
   makeAction(obj){

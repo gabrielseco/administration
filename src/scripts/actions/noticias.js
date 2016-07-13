@@ -2,7 +2,7 @@ import axios from 'axios';
 import {API, FAILURE_SAVING, SENDING_DATA,
   SERVER_RESPONSE, getConstants} from 'constants';
 import action from './redux-actions';
-import isObjectEmpty from 'utils';
+import {isObjectEmpty} from 'utils';
 
 const endpoint = 'noticias';
 
@@ -34,7 +34,7 @@ export function addNoticia(obj, cb){
     return axios.post(`${API}${endpoint}`, obj)
                 .then(response => response.data)
                 .then(json => dispatch(action(SERVER_RESPONSE, json,() => {
-                  uploadImage(json.id, getState().slides.fileUpload, function(response){
+                  uploadImage(json.id, getState().noticias.fileUpload, function(response){
                     cb(json);
                   });
                 }
@@ -50,7 +50,7 @@ export function editNoticia(id, obj, cb){
     return axios.post(`${API}${endpoint}/${id}`, obj)
                 .then(response => response.data)
                 .then(json => dispatch(action(SERVER_RESPONSE, json,() => {
-                  uploadImage(json.id, getState().slides.fileUpload, function(response){
+                  uploadImage(json.id, getState().noticias.fileUpload, function(response){
                     cb(json);
                   });
                 }
@@ -62,6 +62,7 @@ export function editNoticia(id, obj, cb){
 
 
 export function uploadNoticia(image){
+  console.log('image',image);
   return (dispatch, getState) => {
     dispatch(action(UPLOAD_NOTICIAS, image));
   };

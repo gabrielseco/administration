@@ -2,7 +2,7 @@ import axios from 'axios';
 import {API, FAILURE_SAVING, SENDING_DATA,
   SERVER_RESPONSE, getConstants} from 'constants';
 import action from './redux-actions';
-import isObjectEmpty from 'utils';
+import {isObjectEmpty} from 'utils';
 const endpoint = 'slide';
 
 const {REQUEST_SLIDES, RECEIVE_SLIDES, FAILURE_SLIDES, UPLOAD_SLIDES} = getConstants('slides');

@@ -1,7 +1,7 @@
 import {browserHistory} from 'react-router';
 import moment from 'moment';
 
-export const generateForm = (titulo) =>  {
+export const generateForm = (titulo, func) =>  {
   return {
     TITULO:titulo,
     ELEMENTS:[
@@ -10,18 +10,14 @@ export const generateForm = (titulo) =>  {
         NAME:'Activo',
         TYPE:'switch',
         CLASS:'',
-        VALUE:0,
-        EXCLUDE:true
-
+        VALUE:0
       },
       {
         ID:'fecha',
         NAME:'Fecha',
         TYPE:'datepicker',
         CLASS:'',
-        VALUE:moment().format("YYYY-MM-DD"),
-        EXCLUDE:true
-
+        VALUE:moment().format("YYYY-MM-DD")
       },
       {
         ID:'titulo',
@@ -31,8 +27,7 @@ export const generateForm = (titulo) =>  {
         TAKECONTROL:'slug',
         VALUE: '',
         REQUIRED: true,
-        VALIDATION:'El campo es requerido',
-        EXCLUDE:true
+        VALIDATION:'El campo es requerido'
       },
       {
         ID:'slug',
@@ -41,8 +36,7 @@ export const generateForm = (titulo) =>  {
         CLASS:'form-control',
         VALUE: '',
         REQUIRED: false,
-        VALIDATION:'',
-        EXCLUDE:true
+        VALIDATION:''
       },
       {
         ID:'categorias_noticias',
@@ -50,7 +44,7 @@ export const generateForm = (titulo) =>  {
         TYPE:'select-multiple',
         CLASS:'',
         VALUE: [],
-        REQUIRED: true,
+        REQUIRED: false,
         VALIDATION:'El campo es requerido'
       },
       {
@@ -59,7 +53,7 @@ export const generateForm = (titulo) =>  {
         TYPE:'select-multiple',
         CLASS:'',
         VALUE: [],
-        REQUIRED: true,
+        REQUIRED: false,
         VALIDATION:'El campo es requerido'
       },
       {
@@ -67,23 +61,31 @@ export const generateForm = (titulo) =>  {
         NAME:'Intro',
         TYPE:'note',
         CLASS:'wysiwyg',
-        VALUE: '',
-        EXCLUDE:true
+        VALUE: ''
       },
       {
         ID:'texto',
         NAME:'Texto',
         TYPE:'note',
         CLASS:'wysiwyg',
+        VALUE: ''
+      },
+      {
+        ID:'imagenFD',
+        NAME:'Imagen',
+        TYPE:'img',
+        CLASS:'img-thumbnail',
+        FROM:'SERVER',
+        VIEW:'ADD',
         VALUE: '',
-        EXCLUDE:true
+        WIDTH:200
       },
       {
         ID: 'imagen',
         NAME: 'Subir imagen',
         TYPE: 'file',
         CLASS: 'btn btn-info fileinput-button',
-        EXCLUDE:true
+        ONCHANGE:func
       }
 
 

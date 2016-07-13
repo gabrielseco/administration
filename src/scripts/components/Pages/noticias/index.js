@@ -19,7 +19,7 @@ module.exports = {
     component: AltaNoticia
   },
   editar_noticia:{
-    path:'editar_noticia',
+    path:'editar_noticia/:id',
     component: EditarNoticia
   },
   categorias_noticias:{

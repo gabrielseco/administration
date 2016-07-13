@@ -6,7 +6,7 @@ class Imagen extends React.Component {
   render(){
     const classes = classnames(
       {
-        'hidden': this.props.data.VIEW === 'EDITION'
+        'hidden': this.props.data.VALUE === ''
       },
       this.props.data.CLASS
     );

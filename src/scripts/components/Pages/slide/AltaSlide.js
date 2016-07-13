@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
 import { bindActionCreators } from 'redux';
+import {browserHistory} from 'react-router';
 import PageHeader from 'UI/PageHeader';
 import Loading from 'UI/Loading';
 import MainContainer from 'containers/MainContainer';
@@ -33,7 +33,7 @@ const breadcrumb = [
   }
 ];
 
-const form = generateForm(titulo, );
+const form = generateForm(titulo);
 
 //TODO: MAKE THE UPLOAD
 
@@ -43,7 +43,7 @@ class AltaSlide extends Component {
     this.state = {form: null};
   }
 
-  componentDidMount(){
+  componentWillMount(){
     const form = generateForm.apply(this, [titulo, this.props.uploadSlide]);
     this.setState({form: form});
   }
@@ -81,9 +81,7 @@ AltaSlide.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const {slides} = state;
-  console.log('slides',slides);
-  return {file: slides.fileUpload};
+  return {};
 }
 
 function mapDispatchToProps(dispatch){
