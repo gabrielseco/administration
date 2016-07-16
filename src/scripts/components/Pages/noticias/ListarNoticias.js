@@ -148,7 +148,6 @@ class ListarNoticias extends React.Component {
     super(props);
 
     this.state = {
-      api:'noticias',
       modal:false,
       modalLoading: false
     };

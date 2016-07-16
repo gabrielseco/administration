@@ -43,7 +43,7 @@ module.exports = {
     component: AltaTagNoticia
   },
   editar_tag_noticia:{
-    path:'editar_tag_noticia',
+    path:'editar_tag_noticia/:id',
     component: EditarTagNoticia
   }
 
