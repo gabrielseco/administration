@@ -54,7 +54,6 @@ class AltaTagNoticia extends React.Component {
   }
 
   makeAction(obj){
-    delete obj['imagen'];
     this.props.addTagNoticia(obj, (response) => {
 
       browserHistory.push('/listar_tags_noticias');

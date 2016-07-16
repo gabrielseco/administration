@@ -31,7 +31,7 @@ module.exports = {
     component: AltaCategoriaNoticia
   },
   editar_categoria_noticia:{
-    path:'editar_categoria_noticia',
+    path:'editar_categoria_noticia/:id',
     component: EditarCategoriaNoticia
   },
   tags_noticias:{

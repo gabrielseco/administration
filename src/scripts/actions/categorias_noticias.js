@@ -4,15 +4,18 @@ import {API, FAILURE_SAVING, SENDING_DATA,
 import action from './redux-actions';
 import {isObjectEmpty} from 'utils';
 
-const endpoint = 'tags_noticias';
+const endpoint = 'categorias_noticias';
 
-const {REQUEST_TAGS_NOTICIAS, RECEIVE_TAGS_NOTICIAS, FAILURE_TAGS_NOTICIAS} = getConstants('tags_noticias');
+const {
+        REQUEST_CATEGORIAS_NOTICIAS,
+        RECEIVE_CATEGORIAS_NOTICIAS,
+        FAILURE_CATEGORIAS_NOTICIAS} = getConstants('categorias_noticias');
 
 
 //TODO: PASSING THE USER TO THE REDUCER ITEMS
 //TODO: MAKE THE CALLBACK WORK
 
-export function addTagNoticia(obj, cb){
+export function addCategoriaNoticia(obj, cb){
   return (dispatch, getState) => {
     dispatch(action(SENDING_DATA, obj));
     return axios.post(`${API}${endpoint}`, obj)
@@ -26,7 +29,7 @@ export function addTagNoticia(obj, cb){
   };
 }
 
-export function editTagNoticia(id, obj, cb){
+export function editCategoriaNoticia(id, obj, cb){
   return (dispatch, getState) => {
     dispatch(action(SENDING_DATA, obj));
     return axios.post(`${API}${endpoint}/${id}`, obj)
@@ -41,7 +44,7 @@ export function editTagNoticia(id, obj, cb){
 }
 
 
-export function deleteTagNoticia(id, cb){
+export function deleteCategoriaNoticia(id, cb){
   return (dispatch, getState) => {
     dispatch(action(SENDING_DATA, id));
     return axios.delete(`${API}${endpoint}/${id}`)
@@ -55,12 +58,12 @@ export function deleteTagNoticia(id, cb){
   };
 }
 
-export function fetchTagNoticias(){
+export function fetchCategoriaNoticias(){
   return (dispatch, getState) => {
-    dispatch(action(REQUEST_TAGS_NOTICIAS, []));
+    dispatch(action(REQUEST_CATEGORIAS_NOTICIAS, []));
     return axios.get(`${API}${endpoint}`)
                 .then(response => response.data)
-                .then(json =>  dispatch(action(RECEIVE_TAGS_NOTICIAS,json)))
-                .catch(error => dispatch(action(FAILURE_TAGS_NOTICIAS,error)));
+                .then(json =>  dispatch(action(RECEIVE_CATEGORIAS_NOTICIAS,json)))
+                .catch(error => dispatch(action(FAILURE_CATEGORIAS_NOTICIAS,error)));
   };
 }
