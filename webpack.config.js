@@ -14,7 +14,7 @@ const resolve = path.resolve;
 const root    = resolve(__dirname);
 const src     = join(root, 'src');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 
@@ -46,7 +46,8 @@ module.exports = {
       'config'    : join(root, './src/scripts/config'),
       'reducers'  : join(root, './src/scripts/reducers'),
       'utils'     : join(root, './src/scripts/utils'),
-      'UI'        : join(root, './src/scripts/components/UI')
+      'UI'        : join(root, './src/scripts/components/UI'),
+      'styles'    : join(root, './src/styles')
 
     }
   },
@@ -77,8 +78,8 @@ module.exports = {
        NODE_ENV: '"development"'
      }
    }),
-   new ExtractTextPlugin("styles.css")
-
+   new ExtractTextPlugin("styles.css"),
+   new ExtractTextPlugin("site.css")
   ]
 
 };

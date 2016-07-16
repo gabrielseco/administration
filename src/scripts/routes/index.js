@@ -1,10 +1,17 @@
 import App from 'containers/App';
 import LoginPage from 'components/Pages/login/LoginPage';
+import Home from 'components/Pages/_Site/Home';
 
-export default [{
+export default [
+  {
+    path:'/',
+    component: Home
+  },
+  {
   path: '/login',
   component: LoginPage
-}, {
+  },
+  {
   path: '/intranet',
   //indexRoute: { component: Hello },
   component: App,

@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import SideBar from 'components/UI/SideBar';
 import {config, menu} from 'config';
 
+require('styles/main.scss'); 
+
 export default class App extends Component {
   constructor(props) {
     super(props);

@@ -14,7 +14,6 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 try {
-require('../styles/main.scss'); 
 
   render(<Root store={store}/>, document.getElementById('app'));
 } catch(e) {
