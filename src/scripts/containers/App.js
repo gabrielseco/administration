@@ -25,7 +25,7 @@ export default class App extends Component {
       <div id="top"
           className="theme-template-dark theme-pink
           alert-open alert-with-mat-grow-top-right">
-      <SideBar config={config} menu={menu}/>
+      <SideBar config={config} menu={menu} entry="/intranet"/>
       {this.props.children}
       </div>);
   }

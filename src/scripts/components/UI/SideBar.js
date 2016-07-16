@@ -3,7 +3,7 @@ import BrandLogo from './BrandLogo';
 import UserInfo from './UserInfo';
 import Menu from './Menu';
 
-export default function Sidebar({ config, menu }) {
+export default function Sidebar({ config, menu, entry }) {
 
   const style = {
     width: '260px',
@@ -15,7 +15,7 @@ export default function Sidebar({ config, menu }) {
       <aside className="sidebar fixed" style={style}>
         <BrandLogo name={config.NAME} URL={config.LINK} openLink />
         <UserInfo config={config} />
-        <Menu menu={menu}/>
+        <Menu menu={menu} entry={entry}/>
       </aside>
     </div>
   );

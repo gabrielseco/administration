@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-export default function Menu({ menu }) {
+import {Link} from 'react-router';
+export default function Menu({ menu, entry }) {
   const list = menu.map((el, i) => {
 
     const ICON = 'md '+el.ICON;
@@ -10,10 +11,10 @@ export default function Menu({ menu }) {
 
       return (
         <li key={i} icon={ICON}>
-          <a href={el.LINK}>
+          <Link to={entry + el.LINK}>
             <i className={ICON}></i>&nbsp;
             <span>{NAME}</span>
-          </a>
+          </Link>
         </li>
       );
 
@@ -23,11 +24,11 @@ export default function Menu({ menu }) {
 
         return(
           <li key={j} name={NAME}>
-            <a href={child.LINK}>
+            <Link to={entry + child.LINK}>
               <span id={child.ID} className="pull-right badge theme-primary-bg z-depth-0">{child.NOTIFICATIONS}
               </span>
               <span> {child.NAME} </span>
-            </a>
+            </Link>
           </li>
         );
 

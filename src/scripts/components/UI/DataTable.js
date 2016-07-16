@@ -18,7 +18,7 @@ class DataTable extends React.Component {
     .addClass( 'nowrap' )
     .dataTable( {
       "language": {
-               "url": "./assets/dataTables.spanish.json"
+               "url": "../assets/dataTables.spanish.json"
       },
       "aoColumnDefs": [
           { 'bSortable': false, 'aTargets': sorts }

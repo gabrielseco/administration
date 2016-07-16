@@ -1,12 +1,14 @@
 import App from 'containers/App';
+import LoginPage from 'components/Pages/login/LoginPage';
 
-export default {
-
-  path: '/',
+export default [{
+  path: '/login',
+  component: LoginPage
+}, {
+  path: '/intranet',
   //indexRoute: { component: Hello },
   component: App,
   childRoutes: [
-    require('components/Pages/login').login,
     require('components/Pages/usuarios').usuarios,
     require('components/Pages/usuarios').anadir_usuario,
     require('components/Pages/usuarios').editar_usuario,
@@ -30,4 +32,4 @@ export default {
 
     require('components/Pages/server').not_found
   ]
-};
+}];

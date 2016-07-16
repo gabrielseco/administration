@@ -172,7 +172,7 @@ class ListarUsuarios extends Component {
             <section className="forms-advanced">
               <PageHeader info={info}/>
               <div className="p-b-10">
-                <FloatingButton icon="md md-add" link="/anadir_usuario"/>
+                <FloatingButton icon="md md-add" link="/intranet/anade_usuario"/>
               </div>
               <DataTable data={tabla}/>
             </section>

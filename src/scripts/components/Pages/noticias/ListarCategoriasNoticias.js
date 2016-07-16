@@ -170,7 +170,7 @@ class ListarCategoriasNoticias extends React.Component {
               <section className="forms-advanced">
                 <PageHeader info={info}/>
                 <div className="p-b-10">
-                  <FloatingButton icon="md md-add" link="/anade_categoria_noticia"/>
+                  <FloatingButton icon="md md-add" link="/intranet/anade_categoria_noticia"/>
                 </div>
                 <DataTable data={tabla}/>
               </section>

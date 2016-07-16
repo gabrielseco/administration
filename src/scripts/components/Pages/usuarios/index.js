@@ -8,7 +8,7 @@ module.exports = {
     component: ListarUsuarios
   },
   anadir_usuario:{
-    path:'anadir_usuario',
+    path:'anade_usuario',
     component: AltaUsuario
   },
   editar_usuario:{

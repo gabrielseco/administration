@@ -16,11 +16,6 @@ class LoginPage extends React.Component {
     this.state = { api: 'user'};
   }
   componentDidMount(){
-    //removeStyles();
-    //loadStyle("src/assets/css/vendors.min.css")
-    //loadStyle("src/assets/css/styles.min.css")
-    //loadStyle("src/assets/css/intranet.css")
-
 
   }
   handleSubmit(e){
@@ -58,10 +53,10 @@ class LoginPage extends React.Component {
                 <p className="card-title-desc"> Bienvenid@ a tu intranet. Loguéate con tu correo y contraseña </p>
               </div>
               <form className="form-floating">
-                <div className="form-group">
+                <div className="form-group filled">
                   <label htmlFor="inputEmail" className="control-label">Email</label>
                   <input id="email" type="text" className="form-control"/> </div>
-                <div className="form-group">
+                <div className="form-group filled">
                   <label htmlFor="inputPassword" className="control-label">Password</label>
                   <input id="password" type="password" className="form-control"/>
                 </div>
