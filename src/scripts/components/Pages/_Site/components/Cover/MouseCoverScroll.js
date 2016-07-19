@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
 const MouseCoverScroll = () => {
-  //you get the height of the cover and you need to make a transition
+  //TODO: INVESTIGATE HOW TO DO IT WITH PURE JS
   const onScroll = () => {
     const coverHeight = document.getElementById('background--image').scrollHeight;
-    window.scrollTo(0, coverHeight);
+    $('html, body').animate({
+			scrollTop: coverHeight
+		}, 1000);
   };
 
   return(

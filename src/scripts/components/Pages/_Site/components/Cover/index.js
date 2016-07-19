@@ -27,7 +27,7 @@ class Cover extends React.Component {
           <HeaderTitleCover URL="/" title="Gabriel García Seco"/>
           <NavCover items={list_items}/>
         </HeaderCover>
-        <SectionCover URL="http://www.ggseco.com" title="Gabriel García Seco" description="Desarrollo Web | Music & More"/>
+        <SectionCover URL="/" title="Gabriel García Seco" description="Desarrollo Web | Music & More"/>
         <MouseCoverScroll/>
       </div>
   );

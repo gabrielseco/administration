@@ -5,6 +5,8 @@ const SearchIconCover = ({display}) => {
     console.log('click');
     //probably have to call flux to do this
   };
+  if(!display)
+    return (<div></div>);
   return(
     <li className="option searchnav">
       <span className="showsearch">
