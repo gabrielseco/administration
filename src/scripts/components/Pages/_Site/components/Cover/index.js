@@ -10,7 +10,7 @@ import MouseCoverScroll from './MouseCoverScroll';
 const list_items = [
   {
     TITLE: 'Contacto',
-    URL: '/#contacto'
+    URL: '/contact'
   }
 ];
 
@@ -24,7 +24,7 @@ class Cover extends React.Component {
       <div className="cover front">
         <BackgroundCover URL="http://www.ggseco.com/wp-content/uploads/2015/01/hoodvista.jpg"/>
         <HeaderCover>
-          <HeaderTitleCover URL="http://www.ggseco.com" title="Gabriel García Seco"/>
+          <HeaderTitleCover URL="/" title="Gabriel García Seco"/>
           <NavCover items={list_items}/>
         </HeaderCover>
         <SectionCover URL="http://www.ggseco.com" title="Gabriel García Seco" description="Desarrollo Web | Music & More"/>

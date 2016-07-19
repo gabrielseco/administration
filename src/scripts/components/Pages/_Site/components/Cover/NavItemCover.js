@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import {Link} from 'react-router';
 
 const NavItemCover = ({ data }) => {
   return(
     <li>
-      <a href={data.URL}>{data.TITLE}</a>
+      <Link to={data.URL}>{data.TITLE}</Link>
     </li>
   );
 };

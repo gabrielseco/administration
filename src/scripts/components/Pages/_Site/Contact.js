@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Cover from './components/Cover';
-import PostList from './components/PostList';
+import FormContacto from './components/FormContacto';
 
-class Home extends Component {
+class Contact extends Component {
   constructor(props) {
     super(props);
   }
@@ -10,13 +10,13 @@ class Home extends Component {
     return (
       <div>
         <Cover/>
-        <PostList/>
+        <FormContacto/>
       </div>
 
     );
   }
 }
-Home.propTypes = {
+Contact.propTypes = {
 };
 
-export default Home;
+export default Contact;

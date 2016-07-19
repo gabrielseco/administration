@@ -1,9 +1,10 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
+import {Link} from 'react-router';
 
 const HeaderTitleCover = ({ URL, title }) => {
   return(
     <header className="title">
-      <a href={URL}>{title}</a>
+      <Link to={URL}>{title}</Link>
     </header>
   );
 };

@@ -1,11 +1,18 @@
 import App from 'containers/App';
 import LoginPage from 'components/Pages/login/LoginPage';
 import Home from 'components/Pages/_Site/Home';
+import siteApp from 'components/Pages/_Site/containers/App';
 
 export default [
   {
     path:'/',
-    component: Home
+    component: siteApp,
+    indexRoute: { onEnter: (nextState, replace) => replace('/home') },
+    childRoutes:[
+      require('components/Pages/_Site').home,
+      require('components/Pages/_Site').contact
+
+    ]
   },
   {
   path: '/login',

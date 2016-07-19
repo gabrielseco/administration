@@ -9,6 +9,7 @@ const style = {
   maxWidth: '400px'
 };
 
+require('styles/main.scss');
 
 class LoginPage extends React.Component {
   constructor(props){
