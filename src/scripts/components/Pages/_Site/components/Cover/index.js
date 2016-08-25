@@ -9,6 +9,10 @@ import classNames from 'classnames';
 
 const list_items = [
   {
+    TITLE:'Portfolio',
+    URL: '/portfolio'
+  },
+  {
     TITLE: 'Contacto',
     URL: '/contact'
   }

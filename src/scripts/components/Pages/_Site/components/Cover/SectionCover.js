@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-const SectionCover = ({ URL, title, description, center }) => {
+
+const SectionCover = ({ URL, title, description, center, no_hr }) => {
   const centerClass = classNames({
     'blogtitle': !center,
     'wrapper':true,
@@ -18,7 +19,11 @@ const SectionCover = ({ URL, title, description, center }) => {
   const descriptionClass = classNames({
     'description': !center,
     'excerpt': center
-  })
+  });
+
+  if(typeof description === 'function'){
+    description = description();
+  }
 
 
   return(

@@ -10,7 +10,10 @@ export default [
     indexRoute: { onEnter: (nextState, replace) => replace('/home') },
     childRoutes:[
       require('components/Pages/_Site').home,
-      require('components/Pages/_Site').contact
+      require('components/Pages/_Site').contact,
+      require('components/Pages/_Site').portfolio,
+      require('components/Pages/_Site').not_found
+
     ]
   },
   {
