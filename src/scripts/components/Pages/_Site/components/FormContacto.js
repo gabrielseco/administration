@@ -10,7 +10,7 @@ class FormContacto extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.form = {};
     this.state = {
-      sent: 1,
+      sent: 0,
       name:'',
       email:'',
       subject:'',
@@ -23,7 +23,14 @@ class FormContacto extends React.Component {
 
     event.preventDefault();
 
-    const form = this.getValues.call(this.state.form);
+    const form = {
+      name: this.state.name,
+      email: this.state.email,
+      subject: this.state.subject,
+      message: this.state.message
+    };
+
+    console.log('form',form);
 
     this.props.sendContact(form, (res) => {
       this.reinitializeValues();
@@ -33,7 +40,7 @@ class FormContacto extends React.Component {
   }
 
   onChange(field, e){
-    let nextState = this.state.form
+    let nextState = {}
         nextState[field] = e.target.value;
         this.setState(nextState);
   }
@@ -41,16 +48,8 @@ class FormContacto extends React.Component {
 
   reinitializeValues(){
     this.setState({});
-
   }
 
-  getValues(){
-    for(let key in this){
-      this[key] = this[key].value;
-    }
-
-    return this;
-  }
 
   showMessage(){
     this.setState({
