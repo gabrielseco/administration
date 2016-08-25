@@ -5,7 +5,7 @@ import HeaderTitleCover from './HeaderTitleCover';
 import NavCover from './NavCover';
 import SectionCover from './SectionCover';
 import MouseCoverScroll from './MouseCoverScroll';
-
+import classNames from 'classnames';
 
 const list_items = [
   {
@@ -20,18 +20,29 @@ class Cover extends React.Component {
   }
 
   render(){
+    const isFront = classNames({
+      'front': !this.props.center,
+      'cover':true
+    });
     return(
-      <div className="cover front">
-        <BackgroundCover URL="http://www.ggseco.com/wp-content/uploads/2015/01/hoodvista.jpg"/>
+      <div className={isFront}>
+        <BackgroundCover URL={this.props.backgroundImage}/>
         <HeaderCover>
           <HeaderTitleCover URL="/" title="Gabriel García Seco"/>
           <NavCover items={list_items}/>
         </HeaderCover>
-        <SectionCover URL="/" title="Gabriel García Seco" description="Desarrollo Web | Music & More"/>
+        <SectionCover URL={this.props.headingBackground.route}
+                      title={this.props.headingBackground.title}
+                      description={this.props.headingBackground.description}
+                      center={this.props.center}/>
         <MouseCoverScroll/>
       </div>
   );
  }
 }
 
+Cover.PropTypes = {
+  headingBackground: PropTypes.object.isRequired,
+  center: PropTypes.bool
+};
 export default Cover;

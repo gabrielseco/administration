@@ -110,7 +110,7 @@ function mapToTable(json, headers, func){
       CLASS:'btn btn-primary',
       NAME:'Editar',
       CLICK:() => {
-        browserHistory.push('/editar_slide/'+json[i]["id"]);
+        browserHistory.push("/intranet" +'/editar_slide/'+json[i]["id"]);
       }
     };
 

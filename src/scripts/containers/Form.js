@@ -2,11 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import FormGroup from 'components/Forms/FormGroup';
 import ButtonGroup from 'components/Forms/ButtonGroup';
+import jQuery from "jquery";
 
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {elements: this.props.form.ELEMENTS};
+  }
+  componentWillMount(){
+    require('assets/validator.min.js');
+    //require('assets/jquery.hammer.js');
   }
   componentDidMount(){
 

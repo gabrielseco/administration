@@ -7,9 +7,16 @@ class Contact extends Component {
     super(props);
   }
   render() {
+    const headingBackground = {
+      route:'#',
+      title: 'Contacto',
+      description: 'En el siguiente formulario puedes contactar conmigo'
+    }
     return (
       <div>
-        <Cover/>
+        <Cover backgroundImage="http://i2.wp.com/www.ggseco.com/wp-content/uploads/2015/03/dev_cover.jpg?fit=1670%2C1110"
+               headingBackground={headingBackground}
+               center/>
         <FormContacto/>
       </div>
 

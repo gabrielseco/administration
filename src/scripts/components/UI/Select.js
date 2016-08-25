@@ -6,6 +6,9 @@ class Select extends React.Component {
   constructor(props){
     super(props);
   }
+  componentWillMount(){
+    require('assets/select2.min.js');
+  }
   componentDidMount(){
     this.node = ReactDOM.findDOMNode(this.refs.select);
 

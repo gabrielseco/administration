@@ -23,6 +23,20 @@ export function deleteContact(id, cb){
   };
 }
 
+export function sendContact(form, cb){
+  return (dispatch, getState) => {
+    dispatch(action(SENDING_DATA, form));
+    return axios.post(`${API}${endpoint}`, form)
+                .then(response => response.data)
+                .then(json => dispatch(action(SERVER_RESPONSE, json,() => {
+                  cb(json);
+                }
+              )))
+                .catch(error => dispatch(action(FAILURE_SAVING, error)));
+
+  };
+}
+
 export function fetchContacts(){
   return (dispatch, getState) => {
     dispatch(action(REQUEST_CONTACTS, []));

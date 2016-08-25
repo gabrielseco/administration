@@ -7,11 +7,18 @@ import Main from '../components/Main';
 import Footer from '../components/Footer';
 import WebFont from 'webfontloader';
 
-require('styles/site.scss');
+
 
 export default class App extends Component {
   constructor(props) {
     super(props);
+  }
+  componentWillMount(){
+    if(this.props.route.path === "/"){
+      require.ensure([], function() { // this syntax is weird but it works
+        require('styles/site.scss');
+      });
+    }
   }
   componentDidMount(){
     WebFont.load({

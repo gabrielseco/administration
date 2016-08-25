@@ -1,8 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Row from './Tables/Row';
+import jQuery from "jquery";
+
 
 class DataTable extends React.Component {
+  componentWillMount(){
+    //require('assets/datatables.min.js');
+    //require('assets/datatables.js');
+
+  }
   componentDidMount(){
     let sorts = new Array();
     this.props.data.HEADERS.map((header, i) => {

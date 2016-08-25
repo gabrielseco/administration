@@ -94,7 +94,7 @@ function mapToTable(json, headers, func){
       CLASS:'btn btn-primary',
       NAME:'Ver',
       CLICK:() => {
-        browserHistory.push('/ver_contacto/'+json[i]["id"]);
+        browserHistory.push("/intranet" + '/ver_contacto/'+json[i]["id"]);
       }
     };
 

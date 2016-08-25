@@ -10,38 +10,31 @@ class FormContacto extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.form = {};
     this.state = {
-      sent: 1,
-      name:'',
-      email:'',
-      subject:'',
-      message:''
+      sent: 0
     };
-    this.defaultState = Object.assign({},this.state);
   }
 
   onSubmit(event){
 
     event.preventDefault();
 
-    const form = this.getValues.call(this.state.form);
+    const form = this.getValues.call(this.form);
 
     this.props.sendContact(form, (res) => {
-      this.reinitializeValues();
+      this.reinitializeValues.call(this.form);
       this.showMessage();
     });
 
   }
 
-  onChange(field, e){
-    let nextState = this.state.form
-        nextState[field] = e.target.value;
-        this.setState(nextState);
-  }
-
 
   reinitializeValues(){
-    this.setState({});
 
+    Object.keys(this).map(key => {
+      document.getElementById(key).value = '';
+    });
+
+    return this;
   }
 
   getValues(){
@@ -59,15 +52,10 @@ class FormContacto extends React.Component {
   }
 
   renderMessage(){
-    const style = {
-      background:'#2196F3',
-      padding:'5px',
-      marginBottom:'40px',
-      marginTop:'-20px'
-    }
+
     return (
-      <div className="form-sent alert alert-success" style={style}>
-        <p className="text-center" style={{color:'#fff'}}>El formulario ha sido envíado correctamente</p>
+      <div className="form-sent">
+        <p>El formulario ha sido envíado correctamente</p>
       </div>
     );
   }
@@ -79,23 +67,21 @@ class FormContacto extends React.Component {
       boxShadow: 'none'
     };
 
-    const {name, email, subject, message} = this.state;
-
     return(
       <section className="postcontents wrapper" itemProp="mainContentOfPage">
           <form action="/contacto" method="post" onSubmit={this.onSubmit} autoComplete="off">
           <p>Tu nombre (requerido)<br/>
               <span>
-              <input type="text"  value={name} onChange={this.onChange.bind(this, 'name')}  style={boxShadow} required/></span> </p>
+              <input type="text" id="name" ref={node => this.form.name = node}  style={boxShadow} required/></span> </p>
           <p>Tu email (requerido)<br/>
               <span>
-              <input type="email" value={email}  onChange={this.onChange.bind(this, 'email')} style={boxShadow} required/></span> </p>
+              <input type="email" id="email" ref={node => this.form.email = node} style={boxShadow} required/></span> </p>
           <p>Asunto<br/>
               <span>
-              <input type="text"  value={subject} onChange={this.onChange.bind(this, 'subject')} style={boxShadow}/></span> </p>
+              <input type="text" id="subject" ref={node => this.form.subject = node} style={boxShadow}/></span> </p>
           <p>Tu mensaje<br/>
               <span>
-              <textarea value={message} cols="40"  onChange={this.onChange.bind(this, 'message')} rows="10" style={boxShadow}></textarea></span> </p>
+              <textarea id="message" ref={node => this.form.message = node} cols="40" rows="10" style={boxShadow}></textarea></span> </p>
           {this.state.sent === 1 ? this.renderMessage() : <div></div>}
           <input type="submit" value="Enviar"/>
           </form>

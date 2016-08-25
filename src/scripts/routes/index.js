@@ -11,7 +11,6 @@ export default [
     childRoutes:[
       require('components/Pages/_Site').home,
       require('components/Pages/_Site').contact
-
     ]
   },
   {

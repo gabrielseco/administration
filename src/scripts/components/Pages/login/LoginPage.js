@@ -1,8 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-//import { loadStyle, removeStyles} from '../../../lib/resources'
 
-//flux
-//import AppActions from '../../../actions/app-actions';
 
 const style = {
   margin: 'auto',

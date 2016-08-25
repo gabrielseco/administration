@@ -15,6 +15,8 @@ const root    = resolve(__dirname);
 const src     = join(root, 'src');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 
 
@@ -23,7 +25,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: '/assets/'
+    publicPath: '/'
   },
 
   cache: true,
@@ -50,6 +52,11 @@ module.exports = {
       'styles'    : join(root, './src/styles')
 
     }
+  },
+  externals:{
+    "jquery": "jQuery",
+    "hammer": "hammerjs",
+
   },
   module: {
     loaders: [
@@ -79,7 +86,10 @@ module.exports = {
      }
    }),
    new ExtractTextPlugin("styles.css"),
-   new ExtractTextPlugin("site.css")
+   new HtmlWebpackPlugin({
+     template: 'index.template.ejs',
+     inject: 'body',
+   })
   ]
 
 };

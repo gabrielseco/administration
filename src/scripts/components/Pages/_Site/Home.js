@@ -7,9 +7,15 @@ class Home extends Component {
     super(props);
   }
   render() {
+    const headingBackground = {
+      route:'/',
+      title: 'Gabriel García Seco',
+      description: 'Desarrollo Web | Music & More'
+    }
     return (
       <div>
-        <Cover/>
+        <Cover backgroundImage="http://www.ggseco.com/wp-content/uploads/2015/01/hoodvista.jpg"
+               headingBackground={headingBackground}/>
         <PostList/>
       </div>
 
