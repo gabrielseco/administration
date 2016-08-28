@@ -26,7 +26,7 @@ const breadcrumb = [
   },
   {
     NAME: titulo,
-    LINK:'/listar_slide'
+    LINK:'/intranet/listar_slide'
   },
   {
     NAME: texto
@@ -52,7 +52,7 @@ class AltaSlide extends Component {
     delete obj['imagen'];
     this.props.addSlide(obj, (response) => {
 
-      browserHistory.push('/listar_slide');
+      browserHistory.push('/intranet/listar_slide');
     });
   }
 

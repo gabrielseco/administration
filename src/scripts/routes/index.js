@@ -11,8 +11,8 @@ export default [
     childRoutes:[
       require('components/Pages/_Site').home,
       require('components/Pages/_Site').contact,
-      require('components/Pages/_Site').portfolio,
-      require('components/Pages/_Site').not_found
+      require('components/Pages/_Site').portfolio
+      //require('components/Pages/_Site').not_found
 
     ]
   },
@@ -41,6 +41,8 @@ export default [
     require('components/Pages/noticias').alta_tag_noticia,
     require('components/Pages/noticias').editar_tag_noticia,
     require('components/Pages/portfolio').portfolio,
+    require('components/Pages/portfolio').alta_portfolio_categoria,
+    require('components/Pages/portfolio').listar_categorias_portfolio,
     require('components/Pages/contactos').contactos,
     require('components/Pages/contactos').ver_contacto,
 

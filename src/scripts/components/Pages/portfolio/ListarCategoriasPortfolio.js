@@ -7,7 +7,7 @@ import PageHeader from 'UI/PageHeader';
 import DataTable from 'UI/DataTable';
 import FloatingButton from 'UI/FloatingButton';
 import MainContainer from 'containers/MainContainer';
-import { fetchCategoriaNoticias, deleteCategoriaNoticia } from 'actions';
+import { fetchCategoriasPortfolio, deleteCategoriaPortfolio } from 'actions';
 import Loading from  'UI/Loading';
 import Button from  'UI/Button';
 import Imagen from  'UI/Imagen';
@@ -29,8 +29,8 @@ const breadcrumb = [
     TARGET:'_blank'
   },
   {
-    NAME: 'Noticias',
-    LINK:'/intranet/listar_noticias'
+    NAME: 'Portfolio',
+    LINK:'/intranet/listar_portfolio'
   },
   {
     NAME: titulo
@@ -99,7 +99,7 @@ function mapToTable(json, headers, func){
       CLASS:'btn btn-primary',
       NAME:'Editar',
       CLICK:() => {
-        browserHistory.push("/intranet" +'/editar_categoria_noticia/'+json[i]["id"]);
+        browserHistory.push("/intranet" +'/editar_categoria_portfolio/'+json[i]["id"]);
       }
     };
 
@@ -126,7 +126,7 @@ function mapToTable(json, headers, func){
 
 
 
-class ListarCategoriasNoticias extends React.Component {
+class ListarCategoriasPortfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -136,8 +136,8 @@ class ListarCategoriasNoticias extends React.Component {
   }
 
   componentWillMount(){
-    const {fetchCategoriaNoticias} = this.props;
-    fetchCategoriaNoticias();
+    const {fetchCategoriasPortfolio} = this.props;
+    fetchCategoriasPortfolio();
   }
 
   formatTable(obj){
@@ -149,7 +149,7 @@ class ListarCategoriasNoticias extends React.Component {
   }
 
   delete(id){
-    this.props.deleteCategoriaNoticia(id, function(response){
+    this.props.deleteCategoriaPortfolio(id, function(response){
       console.log('response',response);
       location.reload();
     });
@@ -158,19 +158,19 @@ class ListarCategoriasNoticias extends React.Component {
 
 
   render() {
-    const {isFetching, categorias_noticias} = this.props;
+    const {isFetching, categorias_portfolio} = this.props;
     const {modalComponent} = this.state;
     return (
       <div>
         {isFetching ?  <Loading/> :
 
         <MainContainer data={breadcrumb}>
-        {this.formatTable(categorias_noticias)}
+        {this.formatTable(categorias_portfolio)}
             <div className="main-content" autoscroll="true" bs-affix-target="" init-ripples="">
               <section className="forms-advanced">
                 <PageHeader info={info}/>
                 <div className="p-b-10">
-                  <FloatingButton icon="md md-add" link="/intranet/anade_categoria_noticia"/>
+                  <FloatingButton icon="md md-add" link="/intranet/anade_categoria_portfolio"/>
                 </div>
                 <DataTable data={tabla}/>
               </section>
@@ -184,20 +184,20 @@ class ListarCategoriasNoticias extends React.Component {
   }
 }
 
-ListarCategoriasNoticias.propTypes = {
+ListarCategoriasPortfolio.propTypes = {
   categorias_noticias: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchCategoriaNoticias: PropTypes.func.isRequired,
-  deleteCategoriaNoticia: PropTypes.func.isRequired
+  fetchCategoriasPortfolio: PropTypes.func.isRequired,
+  deleteCategoriaPortfolio: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
-  const { categorias_noticias} = state;
-  return { categorias_noticias: categorias_noticias.items, isFetching: categorias_noticias.isFetching  };
+  const { categorias_portfolio} = state;
+  return { categorias_portfolio: categorias_portfolio.items, isFetching: categorias_portfolio.isFetching  };
 
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({fetchCategoriaNoticias, deleteCategoriaNoticia }, dispatch);
+  return bindActionCreators({fetchCategoriasPortfolio, deleteCategoriaPortfolio }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListarCategoriasNoticias);
+export default connect(mapStateToProps, mapDispatchToProps)(ListarCategoriasPortfolio);

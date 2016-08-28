@@ -25,11 +25,11 @@ const breadcrumb = [
   },
   {
     NAME:'Noticias',
-    LINK:'/listar_noticias'
+    LINK:'/intranet/listar_noticias'
   },
   {
     NAME:'Categorías',
-    LINK: '/listar_noticias_categorias'
+    LINK: '/intranet/listar_noticias_categorias'
   },
   {
     NAME: 'Alta de categoría'
@@ -51,7 +51,7 @@ class AltaCategoriaNoticia extends React.Component {
   makeAction(obj){
     this.props.addCategoriaNoticia(obj, (response) => {
 
-      browserHistory.push('/listar_categorias_noticias');
+      browserHistory.push('/intranet/listar_categorias_noticias');
     });
   }
 

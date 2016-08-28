@@ -26,7 +26,7 @@ const breadcrumb = [
   },
   {
     NAME:'Noticias',
-    LINK:'/listar_noticias'
+    LINK:'/intranet/listar_noticias'
   },
 
   {
@@ -56,7 +56,7 @@ class AltaNoticia extends React.Component {
     delete obj['imagen'];
     this.props.addNoticia(obj, (response) => {
 
-      browserHistory.push('/listar_noticias');
+      browserHistory.push('/intranet/listar_noticias');
     });
   }
 

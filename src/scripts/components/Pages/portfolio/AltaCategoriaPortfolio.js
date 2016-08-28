@@ -7,15 +7,15 @@ import Loading from 'UI/Loading';
 import MainContainer from 'containers/MainContainer';
 import Form from 'containers/Form';
 import {config} from 'config';
-import {generateForm} from './tag-form';
-import { addTagNoticia } from 'actions';
+import {generateForm} from './category-form';
+import { addCategoriaPortfolio } from 'actions';
 
-const titulo = 'Tags';
+const titulo = 'Categoría';
 
 const info = {
     TITULO : titulo,
     ICON: 'md-add-circle',
-    TEXTO: 'Desde este formulario puedes crear tags'
+    TEXTO: 'Desde este formulario puedes crear categorías'
 };
 
 const breadcrumb = [
@@ -24,42 +24,36 @@ const breadcrumb = [
     LINK:'http://www.ggseco.com'
   },
   {
-    NAME:'Noticias',
-    LINK:'/intranet/listar_noticias'
+    NAME:'Portfolio',
+    LINK:'/intranet/listar_portfolio'
   },
   {
-    NAME:'Tags',
-    LINK: '/intranet/listar_tags_noticias'
+    NAME:'Categorías',
+    LINK: '/intranet/listar_categorias_portfolio'
   },
   {
-    NAME: 'Alta de tag'
+    NAME: 'Alta de categoría'
   }
 ];
 
-const form = generateForm('Alta de tag');
+const form = generateForm('Alta de categoría');
 
 
 
 
-class AltaTagNoticia extends React.Component {
+class AltaCategoriaPortfolio extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {form: null};
   }
 
-  componentWillMount(){
-    const form = generateForm.apply(this, [titulo]);
-    this.setState({form: form});
-  }
-
   makeAction(obj){
-    this.props.addTagNoticia(obj, (response) => {
+    this.props.addCategoriaPortfolio(obj, (response) => {
 
-      browserHistory.push('/intranet/listar_tags_noticias');
+      browserHistory.push('/intranet/' + 'listar_categorias_portfolio');
     });
   }
-
 
   render() {
 
@@ -76,7 +70,7 @@ class AltaTagNoticia extends React.Component {
   }
 }
 
-AltaTagNoticia.propTypes = {
+AltaCategoriaPortfolio.propTypes = {
   addTagNoticia: PropTypes.func.isRequired
 };
 
@@ -85,7 +79,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ addTagNoticia }, dispatch);
+  return bindActionCreators({ addCategoriaPortfolio }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AltaTagNoticia);
+export default connect(mapStateToProps, mapDispatchToProps)(AltaCategoriaPortfolio);

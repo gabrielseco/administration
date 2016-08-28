@@ -28,11 +28,11 @@ const breadcrumb = [
   },
   {
     NAME:'Noticias',
-    LINK:'/listar_noticias'
+    LINK:'/intranet/listar_noticias'
   },
   {
     NAME:'Tags',
-    LINK: '/listar_tags_noticias'
+    LINK: '/intranet/listar_tags_noticias'
   },
   {
     NAME: 'Modificación de tag'
@@ -60,7 +60,7 @@ class EditarTagNoticia extends React.Component {
 
   makeAction(obj){
     this.props.editTagNoticia(this.props.params.id, obj, function(response){
-      browserHistory.push('/listar_tags_noticias');
+      browserHistory.push('/intranet/listar_tags_noticias');
     });
   }
 

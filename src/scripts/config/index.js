@@ -106,6 +106,18 @@ export const menu = [
         LINK: '/anade_portfolio',
         ID:'anade-portfolio',
         NOTIFICATIONS:''
+      },
+      {
+        NAME: 'Listado de categorías',
+        LINK: '/listar_categorias_portfolio',
+        ID:'listar-portfolio-categorias',
+        NOTIFICATION:''
+      },
+      {
+        NAME: 'Añade categoria',
+        LINK: '/anade_categoria_portfolio',
+        ID:'anade-categoria-portfolio',
+        NOTIFICATION:''
       }
     ]
   },

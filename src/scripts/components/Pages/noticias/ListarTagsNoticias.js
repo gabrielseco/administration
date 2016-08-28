@@ -30,7 +30,7 @@ const breadcrumb = [
   },
   {
     NAME: 'Noticias',
-    LINK:'/listar_noticias'
+    LINK:'/intranet/listar_noticias'
   },
   {
     NAME: titulo

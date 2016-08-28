@@ -46,7 +46,7 @@ class EditarUsuario extends Component {
   //TODO:HAVE UPDATE REDUX REDUCER
   makeAction(obj){
     this.props.editUser(this.props.params.id, obj, function(response){
-      browserHistory.push('/listar_usuarios');
+      browserHistory.push('/intranet/listar_usuarios');
     });
  }
 

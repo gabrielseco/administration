@@ -29,7 +29,7 @@ const breadcrumb = [
   },
   {
     NAME: titulo,
-    LINK:'/listar_slide'
+    LINK:'/intranet/listar_slide'
   },
   {
     NAME: 'Edición de banner'
@@ -53,7 +53,7 @@ class EditarSlide extends Component {
 
   makeAction(obj){
     this.props.editSlide(this.props.params.id, obj, function(response){
-      browserHistory.push('/listar_slide');
+      browserHistory.push('/intranet/listar_slide');
     });
   }
 

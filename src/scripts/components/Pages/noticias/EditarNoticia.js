@@ -28,7 +28,7 @@ const breadcrumb = [
   },
   {
     NAME:'Noticias',
-    LINK:'/listar_noticias'
+    LINK:'/intranet/listar_noticias'
   },
   {
     NAME: 'Modificación de noticia'
@@ -56,7 +56,7 @@ class EditarNoticia extends React.Component {
 
   makeAction(obj){
     this.props.editNoticia(this.props.params.id, obj, function(response){
-      browserHistory.push('/listar_noticias');
+      browserHistory.push('/intranet/listar_noticias');
     });
   }
 

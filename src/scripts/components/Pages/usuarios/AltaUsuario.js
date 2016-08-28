@@ -41,7 +41,7 @@ class AltaUsuario extends Component {
   makeAction(obj){
 
     this.props.addUser(obj, function(response){
-      browserHistory.push('/listar_usuarios');
+      browserHistory.push('/intranet/listar_usuarios');
     });
   }
   render() {
