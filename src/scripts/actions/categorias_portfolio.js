@@ -66,4 +66,28 @@ export function fetchCategoriasPortfolio(){
                 .then(json =>  dispatch(action(RECEIVE_CATEGORIAS_PORTFOLIO,json)))
                 .catch(error => dispatch(action(FAILURE_CATEGORIAS_PORTFOLIO,error)));
   };
+
+}
+
+function formatCategories(arr){
+  const categories = ['Todas'];
+
+  const _categories = arr.map(item => {
+    return item.titulo
+  });
+
+  return categories.concat(_categories);
+
+
+}
+
+export function fetchActiveCategoriasPortfolio(){
+  return (dispatch, getState) => {
+    dispatch(action(REQUEST_CATEGORIAS_PORTFOLIO, []));
+    return axios.get(`${API}${endpoint}?where={activo:1}`)
+                .then(response => response.data)
+                .then(json =>  dispatch(action(RECEIVE_CATEGORIAS_PORTFOLIO,formatCategories(json))))
+                .catch(error => dispatch(action(FAILURE_CATEGORIAS_PORTFOLIO,error)));
+  };
+
 }

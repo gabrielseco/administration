@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import Filters from './Filters';
 import PortfolioList from './PortfolioList';
-export default class PortfolioContainer extends Component {
+
+
+class PortfolioContainer extends Component {
   constructor(props) {
     super(props);
-    this.filters = ['Todas','ReactJS','Github','GraphQL'];
+    this.filters = this.props.filters;
     this.data = [
       {
         title:'ReactIonic',
@@ -28,6 +30,7 @@ export default class PortfolioContainer extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+
   onChange(selectedFilter){
 
     const data = this.data.filter(obj => {
@@ -50,16 +53,21 @@ export default class PortfolioContainer extends Component {
 
 
   render() {
-
     return (
       <div className="portfolio">
         <div className="portfolio-wrapper-filters">
-          <Filters filters={this.filters} selected={this.state.selected} onChange={this.onChange}/>
+          <Filters filters={this.props.filters} selected={this.state.selected} onChange={this.onChange}/>
         </div>
         <PortfolioList filter={this.state.selected} data={this.state.filteredData}/>
       </div>
     );
   }
 }
+
 PortfolioContainer.propTypes = {
+  filters: PropTypes.array.isRequired
 };
+
+
+
+export default PortfolioContainer;

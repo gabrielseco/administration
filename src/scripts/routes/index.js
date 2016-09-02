@@ -42,6 +42,8 @@ export default [
     require('components/Pages/noticias').editar_tag_noticia,
     require('components/Pages/portfolio').portfolio,
     require('components/Pages/portfolio').alta_portfolio_categoria,
+    require('components/Pages/portfolio').editar_categoria_portfolio,
+
     require('components/Pages/portfolio').listar_categorias_portfolio,
     require('components/Pages/contactos').contactos,
     require('components/Pages/contactos').ver_contacto,

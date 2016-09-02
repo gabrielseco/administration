@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { editCategoriaNoticia } from 'actions';
+import { editCategoriaPortfolio } from 'actions';
 import { browserHistory } from 'react-router';
 import PageHeader from 'UI/PageHeader';
 import Loading from 'UI/Loading';
@@ -27,11 +27,11 @@ const breadcrumb = [
   },
   {
     NAME:'Noticias',
-    LINK:'/intranet/listar_noticias'
+    LINK:'/intranet/listar_portfolio'
   },
   {
     NAME:'Categorías',
-    LINK: '/intranet/listar_noticias_categorias'
+    LINK: '/intranet/listar_portfolio_categorias'
   },
   {
     NAME: 'Edición de categoría'
@@ -40,20 +40,21 @@ const breadcrumb = [
 
 const form = generateForm(titulo);
 
-class EditarCategoriaNoticia extends Component {
+class EditarCategoriaPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {form: null};
   }
   componentWillMount(){
     const form = generateForm.apply(this, [titulo]);
-    mapValues(this.props.categoria_noticia, form);
+    mapValues(this.props.categoria_portfolio, form);
     this.setState({form: form});
+    console.log('fo')
   }
 
   makeAction(obj){
-    this.props.editCategoriaNoticia(this.props.params.id, obj, function(response){
-      browserHistory.push('/intranet/listar_categorias_noticias');
+    this.props.editCategoriaPortfolio(this.props.params.id, obj, function(response){
+      browserHistory.push('/intranet/listar_categorias_portfolio');
     });
   }
   render() {
@@ -73,18 +74,19 @@ class EditarCategoriaNoticia extends Component {
    }
   }
 }
-EditarCategoriaNoticia.propTypes = {
-  categoria_noticia:PropTypes.object.isRequired
+
+EditarCategoriaPortfolio.propTypes = {
+  categoria_portfolio:PropTypes.object.isRequired
 };
 function mapStateToProps(state, props) {
-  const {categorias_noticias} = state;
+  const {categorias_portfolio} = state;
   return {
-    categoria_noticia:find(categorias_noticias.items, {id: Number(props.params.id)})
+    categoria_portfolio:find(categorias_portfolio.items, {id: Number(props.params.id)})
   };
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ editCategoriaNoticia }, dispatch);
+  return bindActionCreators({ editCategoriaPortfolio }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditarCategoriaNoticia);
+export default connect(mapStateToProps, mapDispatchToProps)(EditarCategoriaPortfolio);

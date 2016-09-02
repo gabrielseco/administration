@@ -1,6 +1,7 @@
 import ListarPortfolio from './ListarPortfolio';
 import AltaCategoriaPortfolio from './AltaCategoriaPortfolio';
-import ListarCategoriasPortfolio from './ListarCategoriasPortfolio'; 
+import ListarCategoriasPortfolio from './ListarCategoriasPortfolio';
+import EditarCategoriaPortfolio from './EditarCategoriaPortfolio';
 
 module.exports = {
   portfolio:{
@@ -14,6 +15,10 @@ module.exports = {
   alta_portfolio_categoria:{
     path:'anade_categoria_portfolio',
     component: AltaCategoriaPortfolio
+  },
+  editar_categoria_portfolio:{
+    path:'editar_categoria_portfolio/:id',
+    component: EditarCategoriaPortfolio
   }
 
 };

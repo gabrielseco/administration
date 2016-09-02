@@ -159,6 +159,7 @@ class ListarCategoriasPortfolio extends React.Component {
 
   render() {
     const {isFetching, categorias_portfolio} = this.props;
+    console.log('categorias_portfolio',categorias_portfolio)
     const {modalComponent} = this.state;
     return (
       <div>
@@ -185,14 +186,17 @@ class ListarCategoriasPortfolio extends React.Component {
 }
 
 ListarCategoriasPortfolio.propTypes = {
-  categorias_noticias: PropTypes.arrayOf(PropTypes.object).isRequired,
+  categorias_portfolio: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchCategoriasPortfolio: PropTypes.func.isRequired,
   deleteCategoriaPortfolio: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   const { categorias_portfolio} = state;
-  return { categorias_portfolio: categorias_portfolio.items, isFetching: categorias_portfolio.isFetching  };
+  return {
+    categorias_portfolio: categorias_portfolio.items,
+    isFetching: categorias_portfolio.isFetching
+   };
 
 }
 
